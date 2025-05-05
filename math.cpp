@@ -25,6 +25,18 @@ int diff(int num) {
 	}
 }
 
+int multi(int num) {
+	if (num == 1) {
+		return num;
+	}
+	else if (num > 1) {
+		return num * multi(num - 1);
+	}
+	else if (num != 0 && num < 0) {
+		return num * multi(num + 1);
+	}
+}
+
 void main()
 {
 	int num;
@@ -32,7 +44,9 @@ void main()
 	cin >> num;
 	int total = sum(num);
 	int diffTotal = diff(num);
+	int product = multi(num);
 	printf("Total: %d\n" , total);
 	printf("Difference: %d\n", diffTotal);
+	printf("Product: %d\n", product);
 }
 
