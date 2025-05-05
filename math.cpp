@@ -37,6 +37,18 @@ int multi(int num) {
 	}
 }
 
+int div(int num) {
+	if (num != 0 and num == 1) {
+		return num;
+	}
+	else if (num > 1) {
+		return (double)(num / div(num - 1));
+	}
+	else if (num != 0 && num < 0) {
+		return (double)(num / div(num + 1));
+	}
+}
+
 void main()
 {
 	int num;
@@ -45,8 +57,17 @@ void main()
 	int total = sum(num);
 	int diffTotal = diff(num);
 	int product = multi(num);
+	int quotient = div(num);
 	printf("Total: %d\n" , total);
 	printf("Difference: %d\n", diffTotal);
 	printf("Product: %d\n", product);
+	// Check for division by zero
+	if (num == 0) {
+		printf("Cannot divide by zero\n");
+		return;
+	}
+	else {
+		printf("Quotient: %d\n", quotient);
+	}
 }
 
